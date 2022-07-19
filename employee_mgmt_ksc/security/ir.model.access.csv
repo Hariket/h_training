@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_department_ksc_base_user,employee.department.ksc.base.user,model_employee_department_ksc,base.group_user,1,1,1,1
+access_employee_department_shift_ksc_base_user,employee.department.shift.ksc.base.user,model_employee_department_shift_ksc,base.group_user,1,1,1,1
+access_employee_ksc_base_user,employee.ksc.base.user,model_employee_ksc,base.group_user,1,1,1,1
+access_employee_leave_ksc_base_user,employee.leave.ksc.base.user,model_employee_leave_ksc,base.group_user,1,1,1,1
+

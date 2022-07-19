@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_lead_sale_order_form_inherited" model="ir.ui.view">
+        <field name="name">crm.lead.sale.order.form.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="manage_deposit" type="object" string="Manage Deposits"
+                        attrs="{'invisible':[('state', '!=', 'draft')]}"/>
+                <button name="scan_all_sale_order_line" type="object" string="Scan"
+                        attrs="{'invisible':[('state', 'in', ['draft'])]}"/>
+                <button name="confirm_validate_delivery_order" type="object" string="Validate"
+                        attrs="{'invisible':[('state', 'in', ['draft'])]}"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="custom_opportunity_crm_lead_id"/>
+                <field name="custom_opportunity_tag_ids"/>
+            </xpath>
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <field name="product_tmpl_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//page/field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="profit_margin"/>
+                <field name="profit_value"/>
+                <field name="custom_warehouse_id"/>
+                <field name="history_unit_price"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

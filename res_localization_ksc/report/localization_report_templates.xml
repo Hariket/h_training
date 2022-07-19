@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_localization_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <h1 class="mt16">Country's Information</h1>
+            </div>
+            <div class="row mt32 mb32" id="res_localization_ksc">
+                 <div t-if="doc.name" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Name:</strong>
+                    <p class="m-0" t-field="doc.name"/>
+                </div>
+                <div t-if="doc.short_code" class="col-auto col-3 mw-100 mb-2">
+                    <strong>short code of the country:</strong>
+                    <p class="m-0" t-field="doc.short_code"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_localization">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="res_localization_ksc.report_localization_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

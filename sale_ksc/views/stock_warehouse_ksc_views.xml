@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_warehouse_ksc_view_tree" model="ir.ui.view">
+        <field name="name">stock.warehouse.ksc.view.tree</field>
+        <field name="model">stock.warehouse.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="short_code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_warehouse_ksc_view_form" model="ir.ui.view">
+        <field name="name">stock.warehouse.ksc.view.form</field>
+        <field name="model">stock.warehouse.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="short_code"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="stock_location_id"/>
+                            <field name="view_location_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_warehouse_ksc_action" model="ir.actions.act_window">
+        <field name="name">Stock Warehouse</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.warehouse.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Stock Warehouse
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="stock_warehouse_main_menu" name="Warehouse" parent="product_category_main_menu" sequence="30"/>
+    <menuitem id="stock_warehouse_menu" name="Warehouse" parent="stock_warehouse_main_menu"
+              action="stock_warehouse_ksc_action"/>
+</odoo>

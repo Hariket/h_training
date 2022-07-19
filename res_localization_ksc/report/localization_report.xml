@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_report_localization" model="ir.actions.report">
+            <field name="name">Country</field>
+            <field name="model">res.country.ksc</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">res_localization_ksc.report_localization</field>
+            <field name="report_file">res_localization_ksc.report_localization</field>
+            <field name="binding_model_id" ref="model_res_country_ksc"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

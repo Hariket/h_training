@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_custom_report_sale_order_from_wizard" model="ir.actions.report">
+            <field name="name">Sale Orders</field>
+            <field name="model">salesperson.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">my_sale_extended.report_sale_orders_details</field>
+            <field name="report_file">my_sale_extended.report_sale_orders_details</field>
+            <field name="binding_model_id" ref="model_salesperson_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_groupby_product_picking" model="ir.actions.report">
+            <field name="name">group by product picking</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">my_sale_extended.report_groupby_product_picking</field>
+            <field name="report_file">my_sale_extended.report_groupby_product_picking</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

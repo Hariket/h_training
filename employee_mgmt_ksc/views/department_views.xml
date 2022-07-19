@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_department_ksc_view_tree" model="ir.ui.view">
+        <field name="name">employee.department.ksc.view.tree</field>
+        <field name="model">employee.department.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_department_ksc_view_form" model="ir.ui.view">
+        <field name="name">employee.department.ksc.view.form</field>
+        <field name="model">employee.department.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="employee_ids"/>
+                        <field name="res_users_name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_department_ksc_action" model="ir.actions.act_window">
+        <field name="name">Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.department.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="department_main_menu" name="Department" sequence="30"/>
+    <menuitem id="department_menu" name="Department" parent="department_main_menu"
+              action="employee_department_ksc_action"/>
+
+</odoo>

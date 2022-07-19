@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_lead_ksc_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.ksc.view.form</field>
+        <field name="model">lead.ksc</field>
+        <field name="inherit_id" ref="crm_lead_ksc.lead_ksc_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+<!--                <button string="New Quotation" name="action_sale_quotations_new" type="object" class="oe_highlight"-->
+<!--                        data-hotkey="q"-->
+<!--                        title="Create new quotation"-->
+<!--                    />-->
+                <button string="Button Won" class="oe_highlight" type="object" name="button_in_won"
+                        attrs="{'invisible':[('state','=','won')]}"/>
+                <button string="Button Lost" class="oe_highlight" type="object" name="button_in_lost"
+                        attrs="{'invisible':[('state','=','lost')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='expected_revenue']" position="after">
+                <field name="partner_id"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="order_ids"/>
+            </xpath>
+            <xpath expr="//field[@name='channel']" position="after">
+                <field name="lead_line_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_lead_ksc_action" model="ir.actions.act_window">
+        <field name="name">Crm Lead</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lead.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Crm Lead
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="crm_lead_main_menu" name="Crm Lead"
+              parent="crm_team_main_menu"
+              action="crm_lead_ksc_action"/>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crm_team_ksc_view_tree" model="ir.ui.view">
+        <field name="name">crm.team.ksc.view.tree</field>
+        <field name="model">crm.team.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="team_leader"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_team_ksc_view_form" model="ir.ui.view">
+        <field name="name">crm.team.ksc.view.form</field>
+        <field name="model">crm.team.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="team_leader"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="crm_team_ksc_action" model="ir.actions.act_window">
+        <field name="name">Team Leader</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.team.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Team Leader
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="crm_team_main_menu" name="Sales Team"
+              parent="product_category_main_menu"
+              action="crm_team_ksc_action"/>
+</odoo>
+

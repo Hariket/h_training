@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_std_base_user,student.std.base.user,model_student_std,base.group_user,1,1,1,1
+access_known_technical_language_base_user,known.technical.language.base.user,model_known_technical_language,base.group_user,1,1,1,1

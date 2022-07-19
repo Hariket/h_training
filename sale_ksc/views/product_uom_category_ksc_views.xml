@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_uom_category_ksc_view_tree" model="ir.ui.view">
+        <field name="name">product.uom.category.ksc.view.tree</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_uom_category_ksc_view_form" model="ir.ui.view">
+        <field name="name">product.uom.category.ksc.view.form</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="uom_ids"></field>
+                    </group>
+                </sheet>
+            </form>
+<!--            <notebook>-->
+<!--                <page name="uom_ids" string="Uom Ids">-->
+<!--                    -->
+<!--                </page>-->
+<!--            </notebook>-->
+        </field>
+    </record>
+
+    <record id="product_uom_category_ksc_search" model="ir.ui.view">
+        <field name="name">product.uom.category.ksc.search</field>
+        <field name="model">product.uom.category.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_uom_category_ksc_action" model="ir.actions.act_window">
+        <field name="name">UOM Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.uom.category.ksc</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new UOM Category
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="uom_category_main_menu" name="UOM Category"
+              parent="product_main_menu"
+              action="product_uom_category_ksc_action"/>
+</odoo>
+

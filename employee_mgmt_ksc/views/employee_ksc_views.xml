@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_ksc_view_tree" model="ir.ui.view">
+        <field name="name">employee.ksc.view.tree</field>
+        <field name="model">employee.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="salary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_ksc_view_view_form" model="ir.ui.view">
+        <field name="name">employee.ksc.view.form</field>
+        <field name="model">employee.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="department_id"/>
+                            <field name="salary"/>
+                            <field name="shift_id"/>
+                            <field name="job_position"/>
+                            <field name="hire_date"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="job_type"/>
+                            <field name="is_manager"/>
+                            <field name="manager"/>
+                            <field name="related_user"/>
+                            <field name="increment_percentage"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_ksc_action" model="ir.actions.act_window">
+        <field name="name">Employee Ksc</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Employee Record
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="employee_ksc_menu" name="Employee"
+              parent="department_main_menu"
+              action="employee_ksc_action"/>
+</odoo>

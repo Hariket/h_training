@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="employee_hobbies_view_tree" model="ir.ui.view">
+        <field name="name">employee.hobbies.view.tree</field>
+        <field name="model">employee.hobbies</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_hobbies_action" model="ir.actions.act_window">
+        <field name="name">Hobbies</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.hobbies</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new employee hobbies
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="hobbies_menu" name="Employee Hobbies"
+              parent="ksc_employee.employee_main_menu"
+              action="employee_hobbies_action"/>
+</odoo>

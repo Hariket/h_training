@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_inventory_line_ksc_view_tree" model="ir.ui.view">
+        <field name="name">stock.inventory.line.ksc.view.tree</field>
+        <field name="model">stock.inventory.line.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_inventory_line_ksc_view_form" model="ir.ui.view">
+        <field name="name">stock.inventory.line.ksc.view.form</field>
+        <field name="model">stock.inventory.line.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="stock_inventory_id"/>
+                        </group>
+                        <group>
+                            <field name="available_qty"/>
+                            <field name="counted_product_qty"/>
+                            <field name="difference"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_inventory_line_ksc_action" model="ir.actions.act_window">
+        <field name="name">Stock Inventory Line</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.inventory.line.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Stock Inventory Line
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="stock_inventory_line_main_menu" name="Inventory Line" parent="product_category_main_menu" sequence="30"/>
+    <menuitem id="stock_inventory_line_menu" name="Inventory Line" parent="stock_warehouse_main_menu"
+              action="stock_inventory_line_ksc_action"/>
+</odoo>

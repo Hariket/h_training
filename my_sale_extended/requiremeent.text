@@ -1,0 +1,11 @@
+Model - sale.order.line
+
+Add a field history_unit_price in sale.order.line
+When someone try to add the product to sale.order.line, try to bring the unit price from last
+confirmed sale order of same customer and set it the new field mentioned above
+
+Model - purchase.order.line
+
+Add a field history_unit_price in purchase.order.line
+When someone try to add the product to purchase.order.line, try to bring the unit price from
+last confirmed purchase order of same vendor and set it the new field mentioned above

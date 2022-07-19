@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_employee_view_form_extended" model="ir.ui.view">
+        <field name="name">employee.employee.view.form.extended</field>
+        <field name="model">employee.employee</field>
+        <field name="inherit_id" ref="ksc_employee.employee_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='hobbies_ids']" position="after">
+                <field name="working_exp"/>
+            </xpath>
+            <field name="emp_image" position="after">
+                <field name="comments"/>
+            </field>
+            <xpath expr="//sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

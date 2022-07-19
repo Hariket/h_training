@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_order_ksc_view_tree" model="ir.ui.view">
+        <field name="name">purchase.order.ksc.view.tree</field>
+        <field name="model">purchase.order.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="purchase_order_ksc_view_form" model="ir.ui.view">
+        <field name="name">purchase.order.ksc.view.form</field>
+        <field name="model">purchase.order.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_order" string="CONFIRMED" type="object"
+                            attrs="{'invisible': [('state', 'in', ['confirmed'])]}"/>
+                    <field name="state" widget='statusbar' options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="warehouse_id"/>
+                            <field name="order_number"/>
+                            <field name="total_weight"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="vendor_reference"/>
+                            <field name="order_deadline"/>
+                            <field name="receipt_date"/>
+                            <field name="order_total"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="purchase_line_ids" string="Purchase Line Ids">
+                            <field name="purchase_line_ids"></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_order_ksc_action" model="ir.actions.act_window">
+        <field name="name">Purchase Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Purchase Order
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="purchase_order_main_menu" name="Purchase Order"
+              parent="sale_order_main_menu"
+              action="purchase_order_ksc_action"/>
+</odoo>

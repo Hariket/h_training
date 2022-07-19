@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_product_deposit_inherited" model="ir.ui.view">
+        <field name="name">product.product.deposit.inherited</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_policy']" position="after">
+                <field name="deposit_product_id"/>
+                <field name="deposit_product_qty"/>
+                <field name="profit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

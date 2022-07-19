@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_country_ksc_view_tree" model="ir.ui.view">
+        <field name="name">res.country.ksc.view.tree</field>
+        <field name="model">res.country.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="short_code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_country_ksc_view_form" model="ir.ui.view">
+        <field name="name">res.country.ksc.view.form</field>
+        <field name="model">res.country.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="short_code"/>
+                    </group>
+                    <notebook>
+                        <page name="state" string="States">
+                            <field name="states_ids" widget="many2many_tags"/>
+                        </page>
+                        <page name="city" string="Cities">
+                            <field name="cities_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_country_ksc_action" model="ir.actions.act_window">
+        <field name="name">Country</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.country.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new country
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="country_main_menu" name="Country" sequence="30"/>
+    <menuitem id="country_menu" name="Country" parent="country_main_menu"
+              action="res_country_ksc_action"/>
+</odoo>

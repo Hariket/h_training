@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_leave_ksc_view_tree" model="ir.ui.view">
+        <field name="name">employee.leave.ksc.view.tree</field>
+        <field name="model">employee.leave.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee"/>
+                <field name="department"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_leave_ksc_view_form" model="ir.ui.view">
+        <field name="name">employee.leave.ksc.view.form</field>
+        <field name="model">employee.leave.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee"/>
+                            <field name="department"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="leave_description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_leave_ksc_action" model="ir.actions.act_window">
+        <field name="name">Employee Leave</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.leave.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Leave Description
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="employee_leave_ksc_menu" name="Employee Leave"
+              parent="department_main_menu"
+              action="employee_leave_ksc_action"/>
+</odoo>

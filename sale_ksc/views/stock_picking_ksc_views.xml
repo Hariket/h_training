@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_picking_ksc_view_tree" model="ir.ui.view">
+        <field name="name">stock.picking.ksc.view.tree</field>
+        <field name="model">stock.picking.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="order_id"/>
+                <field name="transaction_type"/>
+                <field name="transaction_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_picking_ksc_view_form" model="ir.ui.view">
+        <field name="name">stock.picking.ksc.view.form</field>
+        <field name="model">stock.picking.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header name="header">
+                    <field name="state" widget='statusbar' options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="back_order_id"/>
+                            <field name="parent_picking_id"/>
+                        </group>
+                        <group>
+                            <field name="order_id"/>
+                            <field name="sale_order_id"/>
+                            <field name="purchase_order_id"/>
+                            <field name="transaction_type"/>
+                            <field name="transaction_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="move_ids" string="Move Ids">
+                            <field name="move_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_picking_ksc_action" model="ir.actions.act_window">
+        <field name="name">Stock Picking</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Stock
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="stock_picking_main_menu" name="Picking" parent="product_category_main_menu" sequence="30"/>
+    <menuitem id="stock_picking_menu" name="Picking" parent="stock_warehouse_main_menu"
+              action="stock_picking_ksc_action"/>
+</odoo>

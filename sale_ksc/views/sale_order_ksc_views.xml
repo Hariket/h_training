@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_order_ksc_view_tree" model="ir.ui.view">
+        <field name="name">sale.order.ksc.view.tree</field>
+        <field name="model">sale.order.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="total_volume"/>
+                <field name="order_total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_order_ksc_view_form" model="ir.ui.view">
+        <field name="name">sale.order.ksc.view.form</field>
+        <field name="model">sale.order.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget='statusbar' options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_id"/>
+                            <field name="invoice_customer"/>
+                            <field name="shipping_customer"/>
+                            <field name="lead_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="amount_untaxed"/>
+                        </group>
+                        <group>
+                            <field name="sale_order_date"/>
+                            <field name="salesperson"/>
+                            <field name="total_weight"/>
+                            <field name="total_volume"/>
+                            <field name="order_total"/>
+                            <field name="total_tax"/>
+                            <field name="total_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="picking_ids" string="Picking Ids">
+                            <field name="picking_ids"></field>
+                        </page>
+                        <page name="order_line_ids" string="Order Line Ids">
+                            <field name="order_line_ids"></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_ksc_action" model="ir.actions.act_window">
+        <field name="name">Sale</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Sale
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="sale_order_main_menu" name="Orders" parent="product_category_main_menu" sequence="30"/>
+    <menuitem id="sale_order_menu" name="My Sales" parent="sale_order_main_menu"
+              action="sale_order_ksc_action"/>
+</odoo>

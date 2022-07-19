@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_saleorder_wizard">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="text-center">
+                        <h2>Sale Orders Details</h2>
+                    </div>
+                    <div class="text-center">
+                        <h3>Sales Person</h3>
+                    </div>
+                    <div class="text-center">
+
+                        <table>
+                            <tr>
+                                <td>Date From</td>
+                                <td>:</td>
+                                <td>
+                                    <t t-esc="from_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date To</td>
+                                <td>:</td>
+                                <td>
+                                    <t t-esc="to_date"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <t t-foreach="salesperson_ids" t-as="sp">
+                        <div class="text-center">
+                            <strong>
+                                <t t-esc="sp.name"/>
+                            </strong>
+                        </div>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <th class="text-left">Order Number</th>
+                                <th class="text-left">Customer</th>
+                                <th class="text-right">Order Date</th>
+                                <th class="text-right">Total Tax</th>
+                                <th class="text-right">Total Amount</th>
+                            </tr>
+                        </table>
+                        <t t-set="total_tax" t-value="0"/>
+                        <t t-set="total_amount" t-value="0"/>
+                        <t t-foreach="sale_order" t-as="so">
+                            <t t-if="so.user_id == sp">
+                                <table class="table table-sm o_main_table">
+                                    <tr>
+                                        <td class="text-left">
+                                            <t t-esc="so.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="so.partner_id.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="so.date_order" t-options="{'widget': 'date'}"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="so.amount_tax"/>
+                                            <t t-set="total_tax" t-value="total_tax+so.amount_tax"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="so.amount_total"/>
+                                            <t t-set="total_amount" t-value="total_amount+so.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </t>
+                        </t>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <th class="text-left"></th>
+                                <th class="text-left"></th>
+                                <th class="text-right">
+                                    <span t-field="sale_order.currency_id.symbol"/>
+                                </th>
+                                <th class="text-right">
+                                    <t t-esc="total_tax"/>
+                                </th>
+                                <th class="text-right">
+                                    <t t-esc="total_amount"/>
+                                </th>
+                            </tr>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

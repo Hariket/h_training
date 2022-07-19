@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="form_view_deposit_product_inherited" model="ir.ui.view">
+        <field name="name">form.view.deposit.product.inherited</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"></field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='uom_po_id']" position="after">
+                <field name="deposit_product_id"/>
+                <field name="product_deposit_qty"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

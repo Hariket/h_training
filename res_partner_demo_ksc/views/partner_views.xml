@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_partner_demo1_view_tree" model="ir.ui.view">
+        <field name="name">res.partner.demo1.view.tree</field>
+        <field name="model">res.partner.demo1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="is_spectacles"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_demo1_view_form" model="ir.ui.view">
+        <field name="name">res.partner.demo1.view.form</field>
+        <field name="model">res.partner.demo1</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                            <field name="is_spectacles"/>
+                            <field name="weight"/>
+                        </group>
+                        <group>
+                            <field name="birthdate" required="1"/>
+                            <field name="age"/>
+                            <field name="photo" widget='image' class="oe_avatar"/>
+                        </group>
+                        <group>
+                            <field name="street1"/>
+                            <field name="street2"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="zip_code"/>
+                            <field name="country"/>
+                        </group>
+                    </group>
+
+                    <field name="details" type="html"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_partner_demo1_action" model="ir.actions.act_window">
+        <field name="name">Partner</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.demo1</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new partner
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="res_partner_demo1_main_menu" name="Partner" sequence="30"/>
+    <menuitem id="res_partner_demo1_menu" name="Partner" parent="res_partner_demo1_main_menu"
+          action="res_partner_demo1_action"/>
+</odoo>

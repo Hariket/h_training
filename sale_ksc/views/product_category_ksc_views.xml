@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_category_ksc_view_tree" model="ir.ui.view">
+        <field name="name">product.category.ksc.view.tree</field>
+        <field name="model">product.category.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_category_ksc_view_form" model="ir.ui.view">
+        <field name="name">product.category.ksc.view.form</field>
+        <field name="model">product.category.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_category_ksc_action" model="ir.actions.act_window">
+        <field name="name">Product Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.category.ksc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Product Category
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="product_category_main_menu" name="Producttt"/>
+    <menuitem id="product_category_menu" name="Category" parent="product_category_main_menu"
+              action="product_category_ksc_action"/>
+</odoo>
+
+

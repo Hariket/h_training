@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_uom_ksc_view_tree" model="ir.ui.view">
+        <field name="name">product.uom.ksc.view.tree</field>
+        <field name="model">product.uom.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="uom_category"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_uom_ksc_view_form" model="ir.ui.view">
+        <field name="name">product.uom.ksc.view.form</field>
+        <field name="model">product.uom.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="uom_category"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_uom_ksc_search" model="ir.ui.view">
+        <field name="name">product.uom.ksc.search</field>
+        <field name="model">product.uom.ksc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_uom_ksc_action" model="ir.actions.act_window">
+        <field name="name">UOM</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.uom.ksc</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new UOM
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="product_uom_main_menu" name="Product UOM"
+              parent="product_main_menu"
+              action="product_uom_ksc_action"/>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="sale_order_extended" model="crm.tag">
+            <field name="name">From Lead</field>
+        </record>
+        <record id="sale_order_extended1" model="product.template">
+            <field name="name">Table</field>
+            <field name="name">Cricket Kit</field>
+        </record>
+    </data>
+</odoo>

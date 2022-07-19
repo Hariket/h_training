@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_employee_base_user,employee.employee.base.user,model_employee_employee,base.group_user,1,1,1,1
+access_employee_position_base_user,employee.position.base.user,model_employee_position,base.group_user,1,1,1,1
+access_known_tech_lang_base_user,known.tech.lang.base.user,model_known_tech_lang,base.group_user,1,1,1,1
+access_employee_hobbies_base_user,employee.hobbies.base.user,model_employee_hobbies,base.group_user,1,1,1,1

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_salesperson_info_view_form" model="ir.ui.view">
+        <field name="name">sale.salesperson.info.view.form</field>
+        <field name="model">sale.salesperson.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                        <field name="salesperson_ids"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_report" type="object" string="Print Report" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_salesperson_info_action" model="ir.actions.act_window">
+        <field name="name">Salesperson Info</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.salesperson.info</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_report_salesperson"
+              name="Report By SalesPeron"
+              action="sale_salesperson_info_action"
+              parent="sale.menu_sale_report"
+              sequence="100"/>
+</odoo>
+

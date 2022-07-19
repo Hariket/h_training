@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_state_ksc1_view_tree" model="ir.ui.view">
+        <field name="name">res.state.ksc1.view.tree</field>
+        <field name="model">res.state.ksc1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="short_code"/>
+                <field name="cname"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_state_ksc1_view_form" model="ir.ui.view">
+        <field name="name">res.state.ksc1.view.form</field>
+        <field name="model">res.state.ksc1</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="short_code"/>
+                        <field name="cname"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_state_ksc1_action" model="ir.actions.act_window">
+        <field name="name">State</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.state.ksc1</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="res_state_ksc1_main_menu" name="State" sequence="30"/>
+    <menuitem id="res_state_ksc1_menu" name="State" parent="res_state_ksc1_main_menu"
+          action="res_state_ksc1_action"/>
+
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
