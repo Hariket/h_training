@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="emp_ksc_view_tree" model="ir.ui.view">
+        <field name="name">emp.kec.view.tree</field>
+        <field name="model">emp.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="dname"/>
+                <field name="job_position"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="emp_ksc_view_form" model="ir.ui.view">
+        <field name="name">emp.ksc.view.form</field>
+        <field name="model">emp.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="dname"/>
+                            <field name="job_position"/>
+                            <field name="salary"/>
+                        </group>
+                        <group>
+                            <field name="hire_date"/>
+                            <field name="gender"/>
+                            <field name="job_type"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="emp_ksc_action" model="ir.actions.act_window">
+        <field name="name">emp</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">emp.ksc</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="emp_main_menu" name="emp" sequence="30"/>
+    <menuitem id="emp_menu" name="emp" parent="emp_main_menu"
+              action="emp_ksc_action"/>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="emp_ksc_data" model="emp.ksc">
+            <field name="name">Hariket</field>
+            <field name="salary">25000.00</field>
+            <field name="gender">male</field>
+        </record>
+    </data>
+</odoo>
