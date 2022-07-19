@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="lead_ksc_view_tree" model="ir.ui.view">
+        <field name="name">lead.ksc.view.tree</field>
+        <field name="model">lead.ksc</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lead_ksc_view_form" model="ir.ui.view">
+        <field name="name">lead.ksc.view.form</field>
+        <field name="model">lead.ksc</field>
+        <field name="arch" type="xml">
+            <form>
+                <header name="header">
+                    <field name="state" widget='statusbar' options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="expected_revenue"/>
+                        </group>
+                        <group>
+                            <field name="salesperson"/>
+                            <field name="sales_team"/>
+                            <field name="campaign"/>
+                            <field name="won_date"
+                                   attrs="{'required': [('state','=','won')],'invisible': [('state','!=','won')]}"/>
+                            <field name="lost_reason"
+                                   attrs="{'required': [('state','=','lost')],'invisible': [('state','!=','lost')]}"/>
+                            <field name="channel"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="crm_lead_ksc_search" model="ir.ui.view">
+        <field name="model">lead.ksc</field>
+        <field name="arch" type="xml">
+            <search string="Customers">
+                <filter string="Channel" name="channel" context="{'group_by':'channel'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_lead_ksc_kanban" model="ir.ui.view">
+        <field name="name">lead.ksc.kanban</field>
+        <field name="model">lead.ksc</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="expected_revenue"/>
+                <field name="salesperson"/>
+                <field name="email"/>
+                <field name="state"/>
+                <field name="tag_ids"/>
+                <field name="priority"/>
+                <field name="color"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_dropdown_kanban dropdown">
+                            <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown"
+                               data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                <span class="fa fa-ellipsis-v"/>
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <t t-if="widget.editable">
+                                    <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                </t>
+                                <t t-if="widget.deletable">
+                                    <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                </t>
+                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                            </div>
+                        </div>
+
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Name:
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        expected_revenue:
+                                        <field name="expected_revenue"/>
+                                    </li>
+                                    <li>
+                                        Phone No:
+                                        <field name="phone"/>
+                                    </li>
+                                    <li>
+                                        salesperson:
+                                        <field name="salesperson"/>
+                                    </li>
+                                    <li>
+                                        Email Id:
+                                        <field name="email"/>
+                                    </li>
+                                    <li>
+                                        State:
+                                        <field name="state"/>
+                                    </li>
+                                </ul>
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="priority" widget="priority" groups="base.group_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_lead_ksc_pivot">
+        <field name="name">lead.ksc.pivot</field>
+        <field name="model">lead.ksc</field>
+        <field name="arch" type="xml">
+            <pivot string="Lead Ksc" sample="1">
+                <field name="name"/>
+                <field name="expected_revenue"/>
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="lead_ksc_action" model="ir.actions.act_window">
+        <field name="name">lead</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lead.ksc</field>
+        <field name="view_mode">tree,form,kanban,pivot</field>
+    </record>
+
+    <menuitem id="lead_main_menu" name="lead" sequence="30"/>
+    <menuitem id="lead_menu" name="lead" parent="lead_main_menu"
+              action="lead_ksc_action"/>
+</odoo>
