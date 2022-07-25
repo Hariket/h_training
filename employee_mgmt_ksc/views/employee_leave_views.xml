@@ -17,12 +17,14 @@
         <field name="model">employee.leave.ksc</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="status" widget='statusbar' options="{'clickable': '1'}"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="employee"/>
                             <field name="department"/>
-                            <field name="status"/>
                         </group>
                         <group>
                             <field name="start_date"/>
@@ -47,7 +49,7 @@
         </field>
     </record>
 
-        <menuitem id="employee_leave_ksc_menu" name="Employee Leave"
+    <menuitem id="employee_leave_ksc_menu" name="Employee Leave"
               parent="department_main_menu"
               action="employee_leave_ksc_action"/>
 </odoo>

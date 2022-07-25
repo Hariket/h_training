@@ -25,7 +25,6 @@
                             <field name="order_no"/>
                             <field name="product"/>
                             <field name="uom_id"/>
-                            <!--                            <field name="tax_ids"/>-->
                             <field name="subtotal_tax"/>
                         </group>
                         <group>

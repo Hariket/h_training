@@ -18,7 +18,6 @@
             <form>
                 <header>
                     <button name="update_stock_object_type" type="object" string="Update Stock"/>
-<!--                    <button name="%(product_stock_update_ksc_action)d" type="action" string="Update Stock 1"/>-->
                 </header>
                 <sheet>
                     <group>

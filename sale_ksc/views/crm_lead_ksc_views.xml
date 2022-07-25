@@ -6,10 +6,6 @@
         <field name="inherit_id" ref="crm_lead_ksc.lead_ksc_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-<!--                <button string="New Quotation" name="action_sale_quotations_new" type="object" class="oe_highlight"-->
-<!--                        data-hotkey="q"-->
-<!--                        title="Create new quotation"-->
-<!--                    />-->
                 <button string="Button Won" class="oe_highlight" type="object" name="button_in_won"
                         attrs="{'invisible':[('state','=','won')]}"/>
                 <button string="Button Lost" class="oe_highlight" type="object" name="button_in_lost"
