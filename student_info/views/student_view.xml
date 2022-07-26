@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_std_view_tree" model="ir.ui.view">
+        <field name="name">student.std.view.tree</field>
+        <field name="model">student.std</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="dob"/>
+                <field name="standard"/>
+                <field name="grno"/>
+                <field name="address"/>
+                <field name="subject"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_std_view_form" model="ir.ui.view">
+        <field name="name">student.std.view.form</field>
+        <field name="model">student.std</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="dob"/>
+                        </group>
+                        <group>
+                            <field name="standard"/>
+                            <field name="subject"/>
+                            <field name="grno"/>
+                            <field name="address"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="technical_language" string="Known Technical Language">
+                            <field name="technical_language_name"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_std_action" model="ir.actions.act_window">
+        <field name="name">Student std</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.std</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="student_menu" name="student" sequence="30"/>
+    <menuitem id="student_std_menu" name="student" parent="student_menu"
+              action="student_std_action"/>
+</odoo>
